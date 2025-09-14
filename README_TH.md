@@ -23,39 +23,27 @@
 ก่อนที่จะรันเซิร์ฟเวอร์ได้ คุณต้องติดตั้งซอฟต์แวร์เหล่านี้ก่อน:
 
 * **Microsoft Visual Studio**: สำหรับการคอมไพล์โค้ด (อาจต้องใช้ Visual C++ redistributable)
-* **SQL Server**: สำหรับเป็นฐานข้อมูลหลักของเซิร์ฟเวอร์
+* **PostgreSQL**: สำหรับเป็นฐานข้อมูลหลักของเซิร์ฟเวอร์
 * **.NET Framework**: สำหรับส่วนประกอบบางอย่างของเซิร์ฟเวอร์
 
 ### ขั้นตอนการติดตั้ง
 
 1.  **โคลนโปรเจกต์**:
     ```bash
-    git clone [https://github.com/dekthaiinchina/PointBlankServer.git](https://github.com/dekthaiinchina/PointBlankServer.git)
+    git clone https://github.com/dekthaiinchina/PointBlankServer.git
     ```
 
 2.  **ตั้งค่าฐานข้อมูล**:
-    * สร้างฐานข้อมูลใหม่ใน SQL Server
-    * รันสคริปต์ SQL ที่อยู่ในโฟลเดอร์ `database/` เพื่อสร้างตารางที่จำเป็น
+    * สร้างฐานข้อมูลใหม่ใน PostgreSQL
+    * รันสคริปต์ SQL ที่อยู่ในโฟลเดอร์โปรเจคเพื่อสร้างตารางที่จำเป็น
 
 3.  **ตั้งค่าไฟล์คอนฟิก**:
-    * แก้ไขไฟล์ `config.json` หรือ `appsettings.json` (ชื่อไฟล์อาจแตกต่างกันไป) เพื่อใส่ข้อมูลการเชื่อมต่อฐานข้อมูลและตั้งค่าอื่นๆ
-    * ตัวอย่างการตั้งค่า:
-        ```json
-        {
-          "ConnectionStrings": {
-            "DefaultConnection": "Server=localhost;Database=PointBlankDB;User Id=sa;Password=your_password;"
-          },
-          "ServerSettings": {
-            "Port": 39180,
-            "MaxPlayers": 500
-          }
-        }
-        ```
+    * แก้ไขไฟล์ตั้งค่าในโฟลเดอร์ `build/rel/Config` หรือ `build/dbg/Config` เพื่อใส่ข้อมูลการเชื่อมต่อฐานข้อมูลและตั้งค่าอื่นๆ
 
 4.  **คอมไพล์และรันเซิร์ฟเวอร์**:
     * เปิดไฟล์ `PointBlankServer.sln` ใน Visual Studio
     * เลือกโหมด `Release` หรือ `Debug` แล้วกด `Build Solution`
-    * เมื่อคอมไพล์เสร็จ ให้รันไฟล์ `PointBlankServer.exe` ที่อยู่ในโฟลเดอร์ `bin/`
+    * เมื่อคอมไพล์เสร็จ ให้รันไฟล์ `StartServer.cmd` ที่อยู่ในโฟลเดอร์ `build/rel` หรือ `build/dbg`
 
 ---
 
