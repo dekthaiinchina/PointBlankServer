@@ -37,7 +37,7 @@ To build and run this server, you'll need the following software installed:
     * Execute the SQL scripts found in the project folder to create all the necessary tables and stored procedures.
 
 3.  **Configure the server**:
-    * Edit the `./build/rel/Config` or `./build/dbg/Config` file to set your database connection string and server settings.
+    * Edit config file in`./build/rel/Config` or `./build/dbg/Config` file to set your database connection string and server settings.
 
 4.  **Build and run**:
     * Open the `PointBlankServer.sln` file in Visual Studio.
